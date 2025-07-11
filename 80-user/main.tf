@@ -1,5 +1,6 @@
 module "user" {
-    source = "../../03-terraform-aws-roboshop"
+    # source = "../../03-terraform-aws-roboshop"
+    source = "git::https://github.com/MEDASANI-CHARAN/03-terraform-aws-roboshop.git?ref=main"
     project = var.project
     environment = var.environment
     zone_id = var.zone_id
