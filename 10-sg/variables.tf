@@ -173,3 +173,4 @@ variable "catalogue_ports_vpn" {
   default = ["22", "8080"]
 }
 
+

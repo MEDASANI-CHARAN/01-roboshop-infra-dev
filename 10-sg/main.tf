@@ -566,7 +566,7 @@ resource "aws_security_group_rule" "frontend-alb_http" {
   to_port           = 80
   protocol          = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
-  security_group_id = module.backend-alb.sg_id
+  security_group_id = module.frontend-alb.sg_id
 }
 
 resource "aws_security_group_rule" "frontend-alb_https" {
@@ -577,6 +577,7 @@ resource "aws_security_group_rule" "frontend-alb_https" {
   cidr_blocks = ["0.0.0.0/0"]
   security_group_id = module.frontend-alb.sg_id
 }
+
 
 resource "aws_security_group_rule" "bastion_laptop" {
   type              = "ingress"
