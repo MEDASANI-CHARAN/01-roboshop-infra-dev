@@ -1,17 +1,10 @@
 #!/bin/bash
 
-# Install yum-utils (for yum-config-manager)
 sudo yum install -y yum-utils
-
-# Add the HashiCorp repository
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install terraform
 
-# Clean and make sure repo is added
-sudo yum clean all
-sudo yum makecache
+sudo growpart /dev/nvme0n1 4
+sudo lvextend -L +10G /dev/RootVG/homeVol
 
-# Install Terraform
-sudo yum install -y terraform
-
-# Verify Installation
-terraform -version
+sudo xfs_growfs /home

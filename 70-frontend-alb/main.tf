@@ -1,11 +1,11 @@
 module "frontend_alb" {
   source = "terraform-aws-modules/alb/aws"
-  internal = true # public load balancer
+  internal = false # public load balancer
   version = "9.17.0"
   enable_deletion_protection = false
 
   name    = "${var.project}-${var.environment}-frontend-alb" # roboshop-dev-frontend-alb
-#   vpc_id  = local.vpc_id
+  vpc_id  = local.vpc_id
   subnets = local.public_subnet_ids
   create_security_group = false
   security_groups = [local.frontend-alb_sg_id]
@@ -54,7 +54,7 @@ resource "aws_lb_listener" "frontend_alb_https" {
 
 resource "aws_route53_record" "frontend_alb" {
   zone_id = var.zone_id
-  name    = "*.${var.zone_name}"
+  name    = "${var.environment}.${var.zone_name}"
   type    = "A"
   allow_overwrite = true
 
