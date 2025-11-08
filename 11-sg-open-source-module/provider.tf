@@ -2,20 +2,19 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = "5.99.1"
+      version = "6.16.0"
     }
   }
+
   backend "s3" {
     bucket = "daws2025.online-remote-bucket"
-    key    = "ec2-module-sg-dev"
+    key    = "roboshop-dev-sg-open-source-module"
     region = "us-east-1"
-    encrypt      = true  
-    use_lockfile = true  #S3 native locking
-    # dynamodb_table = "daws2025.online-state"
+    use_lockfile = true
+    encrypt = true
   }
 }
 
 provider "aws" {
-  # Configuration options
   region = "us-east-1"
 }

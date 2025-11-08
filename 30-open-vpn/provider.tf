@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "daws2025.online-remote"
+    bucket = "daws2025.online-remote-bucket"
     key    = "ec2-module-vpn-dev"
     region = "us-east-1"
     encrypt      = true  
