@@ -11,4 +11,4 @@ module "catalogue" {
   tags = local.sg_tags
 
   
-}      
+}       
