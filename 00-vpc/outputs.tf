@@ -8,7 +8,7 @@ output "default_vpc" {
 
 output "default_vpc_main" {
   value = module.vpc.default_vpc_main
-} 
+}  
 
 output "vpc_id" {
   value = module.vpc.vpc_id
